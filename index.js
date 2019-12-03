@@ -75,7 +75,7 @@ const axios = require("axios-https-proxy-fix");
             
             console.log('timeRestante ==>', timeRestante);
             
-			if (data[0] && data[0].Status.includes('2') && timeRestante < 1) {
+			if (data[0] && data[0].Status.includes('2') && timeRestante < 2) {
                 console.log(data[0].Lances);
                 console.log('ARREMETADO');
 				await page.evaluate((fisrtId) => {
@@ -87,6 +87,7 @@ const axios = require("axios-https-proxy-fix");
             getProductsLances();
 		} catch (err) {
             console.warn("ERRO NO REQUEST ==> ", err);
+            await sleeper(3000);
             getProductsLances();
 		} 
 	};
