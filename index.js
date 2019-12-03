@@ -75,7 +75,10 @@ const axios = require("axios-https-proxy-fix");
             
             console.log('timeRestante ==>', timeRestante);
             
+            console.log(data[0]);
+            
 			if (data[0] && data[0].Status.includes('2') && timeRestante < 2) {
+
                 console.log('ARREMETADO');
 				$(`#L_BotaoA_${fisrtId}`).click();
             }
@@ -83,7 +86,8 @@ const axios = require("axios-https-proxy-fix");
             await sleeper(timeRestante * 1000 - 2000);
             getProductsLances();
 		} catch (err) {
-			console.warn("ERRO NO REQUEST ==> ", err);
+            console.warn("ERRO NO REQUEST ==> ", err);
+            getProductsLances();
 		} 
 	};
 
