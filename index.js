@@ -75,10 +75,10 @@ const axios = require("axios-https-proxy-fix");
             
             console.log('timeRestante ==>', timeRestante);
             
-			if (data[0] && data[0].Status.includes('2') && timeRestante < 0) {
+			if (data[0] && data[0].Status.includes('2') && timeRestante < 2) {
                 console.log('ARREMETADO');
 				$(`#L_BotaoA_${fisrtId}`).click();
-			}
+            }
 
             await sleeper(timeRestante * 1000 - 2000);
             getProductsLances();
