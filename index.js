@@ -75,12 +75,12 @@ const axios = require("axios-https-proxy-fix");
             
             console.log('timeRestante ==>', timeRestante);
             
-            console.log(data[0]);
-            
-			if (data[0] && data[0].Status.includes('2') && timeRestante < 2) {
-
+			if (data[0] && data[0].Status.includes('2') && timeRestante < 1) {
+                console.log(data[0].Lances);
                 console.log('ARREMETADO');
-				$(`#L_BotaoA_${fisrtId}`).click();
+				await page.evaluate((fisrtId) => {
+                    document.querySelector(`#L_BotaoA_${fisrtId} a`).click()
+                }, fisrtId);
             }
 
             await sleeper(timeRestante * 1000 - 2000);
